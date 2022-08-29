@@ -67,6 +67,7 @@ for (i = 0; i <= drumList.length; i++) {
         clicked*/
         
         sounds(event.target.innerHTML);
+        buttonAnimation(event.target.innerHTML);
     
     });
 
@@ -76,7 +77,16 @@ for (i = 0; i <= drumList.length; i++) {
     
     drumList[i].addEventListener("keydown", event => {
         sounds(event.key);
+        buttonAnimation(event.key);
 });
+
+function buttonAnimation(currentKey) {
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function() {
+        activeButton.classList.remove("pressed") }, 100);
+}
 
 };
 
